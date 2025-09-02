@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>suanpan maths trainer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>suanpan maths trainer</h1>
+            <div class="timer-display">
+                <span id="timer">00:00</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- settings -->
+            <div class="settings-panel" id="settingsPanel">
+                <h2>settings</h2>
+                
+                <div class="setting-group">
+                    <label for="maxDigits">max digits:</label>
+                    <input type="number" id="maxDigits" value="3" min="1" max="10">
+                </div>
+
+                <div class="setting-group">
+                    <label for="problemCount">problems in set:</label>
+                    <input type="number" id="problemCount" value="10" min="1" max="100">
+                </div>
+
+                <div class="setting-group">
+                    <label for="numbersInProblem">numbers per problem:</label>
+                    <input type="number" id="numbersInProblem" value="2" min="2" max="10">
+                </div>
+
+                <div class="setting-group">
+                    <label for="operationType">operation:</label>
+                    <select id="operationType">
+                        <option value="addition">addition</option>
+                        <option value="subtraction">subtraction</option>
+                        <option value="multiplication">multiplication</option>
+                        <option value="division">division</option>
+                        <option value="mixed" selected>mixed</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="allowRemainders" checked>
+                        allow remainders (division)
+                    </label>
+                </div>
+
+                <button id="startBtn" class="start-btn">begin practice</button>
+            </div>
+
+            <!-- game area -->
+            <div class="game-area" id="gameArea" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <span class="progress-text" id="progressText">1 / 10</span>
+                </div>
+
+                <div class="problem-display">
+                    <div id="problemText"></div>
+                    <div class="answer-section">
+                        <input type="number" id="answerInput" placeholder="Your answer">
+                        <div id="feedback"></div>
+                    </div>
+                </div>
+
+                <button id="backToSettings" class="back-btn">return to settings</button>
+            </div>
+
+            <!-- results -->
+            <div class="results-area" id="resultsArea" style="display: none;">
+                <h2>complete</h2>
+                <div class="results-stats">
+                    <div class="stat">
+                        <span class="stat-label">time:</span>
+                        <span id="finalTime"></span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">accuracy:</span>
+                        <span id="accuracy"></span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">problems/min:</span>
+                        <span id="problemsPerMin"></span>
+                    </div>
+                </div>
+                <button id="restartBtn" class="start-btn">practice again</button>
+            </div>
+        </div>
+
+        <!-- leaderboard -->
+        <div class="leaderboard">
+            <h3>personal records</h3>
+            <div class="leaderboard-controls">
+                <select id="leaderboardFilter">
+                    <option value="all">all records</option>
+                    <option value="addition">addition</option>
+                    <option value="subtraction">subtraction</option>
+                    <option value="multiplication">multiplication</option>
+                    <option value="division">division</option>
+                    <option value="mixed">mixed</option>
+                </select>
+                <button id="clearRecords">clear</button>
+            </div>
+            <div id="leaderboardList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
